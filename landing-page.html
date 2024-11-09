@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional YouTube video editing and coaching services for aspiring content creators">
+    <title>CreatorLaunch - YouTube Success Starts Here</title>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Previous styles remain the same until here */
+        [Previous CSS remains exactly the same]
+
+        /* New styles for additional features */
+        .portfolio-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .resource-icon {
+            font-size: 2em;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: var(--background);
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .toggle-button {
+            padding: 10px 20px;
+            background: var(--background);
+            border: none;
+            cursor: pointer;
+        }
+
+        .toggle-button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--background);
+            margin-right: 15px;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .badge i {
+            color: var(--primary);
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        #resources {
+            background: var(--background);
+            padding: 60px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .social-proof {
+            background: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .subscriber-counter {
+            font-size: 3em;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .tools-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tool-icon i {
+            font-size: 2em;
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Previous sections remain the same until the new sections -->
+    [Previous HTML sections remain exactly the same through the FAQ section]
+
+    <section id="resources" class="animate">
+        <div class="container">
+            <h2>Free Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Editing Basics</h3>
+                    <p>Learn fundamental editing techniques with our free guide</p>
+                    <a href="#" class="button">Download Guide</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Growth Strategy Template</h3>
+                    <p>Plan your channel growth with our proven template</p>
+                    <a href="#" class="button">Get Template</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Creator Toolkit</h3>
+                    <p>Essential tools and resources for YouTube success</p>
+                    <a href="#" class="button">Access Toolkit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="animate">
+        <div class="container">
+            <h2>Latest Tips & Insights</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="Editing Tips" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-date">November 1, 2024</div>
+                        <h3>10 Must-Know Video Editing Tips</h3>
+                        <p>Learn the essential editing techniques that can transform your content...</p>
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="YouTube Algorithm" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-date">October 28, 2024</div>
+                        <h3>Understanding the YouTube Algorithm</h3>
+                        <p>Master the key factors that influence your video's visibility...</p>
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="Channel Growth" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-date">October 25, 2024</div>
+                        <h3>Growing Your Channel from Zero</h3>
+                        <p>Proven strategies to build your audience from the ground up...</p>
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof animate">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="trust-badges">
+                <div class="badge">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong>500+</strong>
+                        <div>Creators Helped</div>
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-award"></i>
+                    <div>
+                        <strong>100%</strong>
+                        <div>Satisfaction Rate</div>
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>24h</strong>
+                        <div>Response Time</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tools-section">
+                <div class="tool-icon">
+                    <i class="fab fa-adobe"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fab fa-windows"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner animate">
+        <div class="container">
+            <h2>Ready to Transform Your YouTube Channel?</h2>
+            <p>Join hundreds of successful creators who took their content to the next level</p>
+            <a href="#contact" class="button">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <!-- Previous contact section and floating CTA remain the same -->
+    [Previous contact section and floating CTA HTML remain exactly the same]
+
+</body>
+</html>
